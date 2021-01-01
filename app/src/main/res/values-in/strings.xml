@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Github User App v.2</string>
+    <string name="app_name">Github User App v.3</string>
     <string name="app_name_main">Pencarian Pengguna Github</string>
     <string name="app_name_detail">Detail Pengguna</string>
 
-    <string name="user_app">User App v.2</string>
+    <string name="user_app">User App v.3</string>
     <string name="follower">Pengikut</string>
     <string name="following">Mengikuti</string>
     <string name="repositories">Repositori</string>

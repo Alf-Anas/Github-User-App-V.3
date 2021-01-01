@@ -1,4 +1,4 @@
-package com.lofrus.githubuserappv2
+package com.lofrus.githubuserappv3
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,9 +13,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lofrus.githubuserappv2.databinding.ActivityMainBinding
-import com.lofrus.githubuserappv2.model.ListUserAdapter
-import com.lofrus.githubuserappv2.viewmodel.MainViewModel
+import com.lofrus.githubuserappv3.databinding.ActivityMainBinding
+import com.lofrus.githubuserappv3.model.ListUserAdapter
+import com.lofrus.githubuserappv3.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 

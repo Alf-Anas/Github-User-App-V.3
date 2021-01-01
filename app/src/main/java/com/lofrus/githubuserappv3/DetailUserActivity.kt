@@ -1,4 +1,4 @@
-package com.lofrus.githubuserappv2
+package com.lofrus.githubuserappv3
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -8,10 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.lofrus.githubuserappv2.databinding.ActivityDetailUserBinding
-import com.lofrus.githubuserappv2.fragment.DetailUserPagerAdapter
-import com.lofrus.githubuserappv2.model.User
-import com.lofrus.githubuserappv2.viewmodel.DetailUserViewModel
+import com.lofrus.githubuserappv3.databinding.ActivityDetailUserBinding
+import com.lofrus.githubuserappv3.fragment.DetailUserPagerAdapter
+import com.lofrus.githubuserappv3.model.User
+import com.lofrus.githubuserappv3.viewmodel.DetailUserViewModel
 
 class DetailUserActivity : AppCompatActivity() {
 

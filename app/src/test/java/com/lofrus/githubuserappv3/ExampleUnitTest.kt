@@ -1,4 +1,4 @@
-package com.lofrus.githubuserappv2
+package com.lofrus.githubuserappv3
 
 import org.junit.Test
 

@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Github User App v.2</string>
+    <string name="app_name">Github User App v.3</string>
     <string name="app_name_main">Github User\'s Search</string>
     <string name="app_name_detail">Detail User</string>
 
-    <string name="user_app">User App v.2</string>
+    <string name="user_app">User App v.3</string>
     <string name="follower">Followers</string>
     <string name="following">Following</string>
     <string name="repositories">Repositories</string>

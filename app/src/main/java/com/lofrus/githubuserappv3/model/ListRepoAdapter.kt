@@ -1,11 +1,11 @@
-package com.lofrus.githubuserappv2.model
+package com.lofrus.githubuserappv3.model
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.lofrus.githubuserappv2.R
-import com.lofrus.githubuserappv2.databinding.ItemListRepoBinding
+import com.lofrus.githubuserappv3.R
+import com.lofrus.githubuserappv3.databinding.ItemListRepoBinding
 
 class ListRepoAdapter : RecyclerView.Adapter<ListRepoAdapter.ListViewHolder>() {
 

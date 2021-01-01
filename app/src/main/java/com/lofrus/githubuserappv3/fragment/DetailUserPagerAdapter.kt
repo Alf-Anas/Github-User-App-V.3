@@ -1,10 +1,10 @@
-package com.lofrus.githubuserappv2.fragment
+package com.lofrus.githubuserappv3.fragment
 
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.lofrus.githubuserappv2.R
+import com.lofrus.githubuserappv3.R
 
 class DetailUserPagerAdapter(private val mContext: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {

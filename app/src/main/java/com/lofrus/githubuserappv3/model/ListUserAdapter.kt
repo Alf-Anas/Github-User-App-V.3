@@ -1,4 +1,4 @@
-package com.lofrus.githubuserappv2.model
+package com.lofrus.githubuserappv3.model
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.lofrus.githubuserappv2.DetailUserActivity
-import com.lofrus.githubuserappv2.R
-import com.lofrus.githubuserappv2.databinding.ItemListUserBinding
+import com.lofrus.githubuserappv3.DetailUserActivity
+import com.lofrus.githubuserappv3.R
+import com.lofrus.githubuserappv3.databinding.ItemListUserBinding
 
 class ListUserAdapter : RecyclerView.Adapter<ListUserAdapter.ListViewHolder>() {
 

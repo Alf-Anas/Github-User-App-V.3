@@ -1,4 +1,4 @@
-package com.lofrus.githubuserappv2.retrofit
+package com.lofrus.githubuserappv3.retrofit
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

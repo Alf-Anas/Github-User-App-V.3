@@ -1,4 +1,4 @@
-package com.lofrus.githubuserappv2
+package com.lofrus.githubuserappv3
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

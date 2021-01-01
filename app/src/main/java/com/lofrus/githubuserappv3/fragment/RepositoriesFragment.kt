@@ -1,4 +1,4 @@
-package com.lofrus.githubuserappv2.fragment
+package com.lofrus.githubuserappv3.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,9 +8,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lofrus.githubuserappv2.databinding.FragmentRepositoriesBinding
-import com.lofrus.githubuserappv2.model.ListRepoAdapter
-import com.lofrus.githubuserappv2.viewmodel.DetailUserViewModel
+import com.lofrus.githubuserappv3.databinding.FragmentRepositoriesBinding
+import com.lofrus.githubuserappv3.model.ListRepoAdapter
+import com.lofrus.githubuserappv3.viewmodel.DetailUserViewModel
 
 class RepositoriesFragment : Fragment() {
 

@@ -1,4 +1,4 @@
-package com.lofrus.githubuserappv2.model
+package com.lofrus.githubuserappv3.model
 
 class DetailUser(
     var id: Int = 0,

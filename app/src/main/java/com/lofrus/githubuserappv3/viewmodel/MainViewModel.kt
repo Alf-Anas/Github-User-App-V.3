@@ -1,12 +1,12 @@
-package com.lofrus.githubuserappv2.viewmodel
+package com.lofrus.githubuserappv3.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.JsonElement
-import com.lofrus.githubuserappv2.model.User
-import com.lofrus.githubuserappv2.retrofit.RetrofitClient
+import com.lofrus.githubuserappv3.model.User
+import com.lofrus.githubuserappv3.retrofit.RetrofitClient
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
