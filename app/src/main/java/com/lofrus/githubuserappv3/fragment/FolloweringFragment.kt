@@ -68,7 +68,6 @@ class FolloweringFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding = FragmentFolloweringBinding.inflate(layoutInflater, container, false)
         return binding.root
     }

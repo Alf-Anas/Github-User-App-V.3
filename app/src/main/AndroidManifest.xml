@@ -4,6 +4,8 @@
     package="com.lofrus.githubuserappv3">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -13,13 +15,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubUserAppV2"
         tools:ignore="AllowBackup">
+        <receiver
+            android:name=".broadcast.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true"
+            tools:ignore="ExportedReceiver" />
+
         <activity
-            android:name="com.lofrus.githubuserappv3.DetailUserActivity"
+            android:name=".SettingsActivity"
+            android:label="@string/app_name_settings" />
+        <activity
+            android:name=".FavoriteActivity"
+            android:label="@string/app_name_favorite" />
+        <activity
+            android:name=".DetailUserActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name_detail"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.lofrus.githubuserappv3.SplashScreenActivity"
+            android:name=".SplashScreenActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +42,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.lofrus.githubuserappv3.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name_main" />
     </application>
 

@@ -3,10 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/change_ln"
-        android:icon="@drawable/ic_baseline_language_24"
+        android:id="@+id/favorite_ls"
+        android:icon="@drawable/ic_baseline_star_24"
         android:orderInCategory="101"
         android:title="@string/options_ln"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/setting_sh"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:orderInCategory="102"
+        android:title="@string/options_ln"
+        app:showAsAction="ifRoom" />
 
 </menu>

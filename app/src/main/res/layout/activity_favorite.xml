@@ -8,10 +8,10 @@
     android:paddingStart="16dp"
     android:paddingTop="16dp"
     android:paddingEnd="16dp"
-    tools:context=".MainActivity">
+    tools:context=".FavoriteActivity">
 
     <LinearLayout
-        android:id="@+id/llMainBG"
+        android:id="@+id/llFavoriteBG"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -25,46 +25,23 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            android:contentDescription="@string/type_to_search"
-            app:srcCompat="@drawable/ic_baseline_person_search_24" />
+            android:contentDescription="@string/no_favorite_data"
+            app:srcCompat="@drawable/ic_baseline_person_off_24" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/abeezee"
             android:gravity="center"
-            android:text="@string/type_to_search"
+            android:text="@string/no_favorite_data"
             android:textSize="18sp"
             android:textStyle="italic" />
     </LinearLayout>
 
-    <SearchView
-        android:id="@+id/svMain"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_white_radius"
-        android:iconifiedByDefault="false"
-        android:queryHint="@string/search_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMain"
+        android:id="@+id/rvFavorite"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/svMain" />
-
-    <ProgressBar
-        android:id="@+id/progressBarMain"
-        style="@android:style/Widget.Holo.Light.ProgressBar.Large"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

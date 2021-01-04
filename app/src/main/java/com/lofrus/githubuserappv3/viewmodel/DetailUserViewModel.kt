@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.JsonElement
+import com.lofrus.githubuserappv3.BuildConfig
 import com.lofrus.githubuserappv3.model.DetailUser
 import com.lofrus.githubuserappv3.model.Repositories
 import com.lofrus.githubuserappv3.model.User
@@ -24,7 +25,7 @@ class DetailUserViewModel : ViewModel() {
     val listRepositories = MutableLiveData<ArrayList<Repositories>>()
     var statusError = MutableLiveData<String?>()
     private val baseURL = "https://api.github.com/"
-    private val authToken = "6d1a4e19b69785ad2f6c17c189a3bfa183c09e48"
+    private var authToken = BuildConfig.GithubAPIToken
 
     fun setDetailUser(username: String) {
         RetrofitClient(baseURL).instanceDetailUser.getDetailUser(authToken, username)
@@ -60,7 +61,8 @@ class DetailUserViewModel : ViewModel() {
                             }
                         } else {
                             Log.d("responseDetail.isFailed", "Response Not Successful")
-                            statusError.value = "responseDetail.isFailed - Response Not Successful"
+                            statusError.value =
+                                "responseDetail.isFailed - Response Not Successful$authToken"
                         }
                     }
 

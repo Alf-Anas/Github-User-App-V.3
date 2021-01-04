@@ -2,6 +2,8 @@
     <string name="app_name">Github User App v.3</string>
     <string name="app_name_main">Github User\'s Search</string>
     <string name="app_name_detail">Detail User</string>
+    <string name="app_name_favorite">Favorite Users</string>
+    <string name="app_name_settings">Preferences</string>
 
     <string name="user_app">User App v.3</string>
     <string name="follower">Followers</string>
@@ -10,13 +12,29 @@
     <string name="repo">Repo</string>
     <string name="email">Email</string>
     <string name="location">Location</string>
-    <string name="company">company</string>
+    <string name="company">Company</string>
+    <string name="favorite">Favorite</string>
+
+    <string name="key_reminder9">reminder_9</string>
+    <string name="key_language">language</string>
+    <string name="ln_english">en</string>
+    <string name="ln_indonesia">in</string>
 
     <string name="list_username">Username</string>
     <string name="list_name">Name</string>
     <string name="list_link">https://</string>
     <string name="search_title">Search user…</string>
     <string name="options_ln">Language Options</string>
+    <string name="type_to_search">Type Username to Search…</string>
+    <string name="no_favorite_data">Favorite User Not Found…</string>
 
     <string name="double_back_pressed_to_exit">Press again to exit~</string>
+    <string name="general_header">General</string>
+    <string name="reminder_at_9">Reminder at 9.00 AM</string>
+    <string name="sl_language">Select Language</string>
+    <string name="reminder_at_9_active">Reminder at 9.00 AM Activated</string>
+    <string name="reminder_at_9_canceled">Reminder at 9.00 AM Canceled</string>
+    <string name="reminder_at_9_title">Open App Reminder</string>
+    <string name="reminder_at_9_message">Hey, it\'s time to open Github User App</string>
+
 </resources>

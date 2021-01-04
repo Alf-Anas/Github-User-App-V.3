@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.JsonElement
+import com.lofrus.githubuserappv3.BuildConfig
 import com.lofrus.githubuserappv3.model.User
 import com.lofrus.githubuserappv3.retrofit.RetrofitClient
 import org.json.JSONArray
@@ -19,7 +20,7 @@ class MainViewModel : ViewModel() {
     val listUsers = MutableLiveData<ArrayList<User>>()
     var statusError = MutableLiveData<String?>()
     private val baseURL = "https://api.github.com/"
-    private val authToken = "6d1a4e19b69785ad2f6c17c189a3bfa183c09e48"
+    private val authToken = BuildConfig.GithubAPIToken
 
     fun setListUsers(username: String) {
         RetrofitClient(baseURL).instanceListUsers.getListUsers(authToken, username)

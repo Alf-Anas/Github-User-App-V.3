@@ -175,6 +175,19 @@
 
     </androidx.viewpager.widget.ViewPager>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:contentDescription="@string/favorite"
+        android:focusable="true"
+        app:backgroundTint="@color/white"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="@+id/img_detail_avatar"
+        app:layout_constraintEnd_toEndOf="@+id/img_detail_avatar"
+        app:srcCompat="@drawable/ic_baseline_star_border_24" />
+
     <ProgressBar
         android:id="@+id/progressBarDetail"
         style="@android:style/Widget.Holo.Light.ProgressBar.Large"

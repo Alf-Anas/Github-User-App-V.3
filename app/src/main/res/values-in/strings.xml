@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Github User App v.3</string>
     <string name="app_name_main">Pencarian Pengguna Github</string>
     <string name="app_name_detail">Detail Pengguna</string>
+    <string name="app_name_favorite">Pengguna Favorit</string>
+    <string name="app_name_settings">Pengaturan</string>
 
-    <string name="user_app">User App v.3</string>
     <string name="follower">Pengikut</string>
     <string name="following">Mengikuti</string>
     <string name="repositories">Repositori</string>
-    <string name="repo">Repo</string>
     <string name="email">Surel</string>
     <string name="location">Lokasi</string>
     <string name="company">Perusahaan</string>
+    <string name="favorite">Favorit</string>
 
     <string name="list_username">Nama Pengguna</string>
     <string name="list_name">Nama</string>
-    <string name="list_link">https://</string>
     <string name="search_title">Cari pengguna…</string>
     <string name="options_ln">Pilihan Bahasa</string>
+    <string name="type_to_search">Ketikkan Nama Pengguna Untuk Mencari…</string>
+    <string name="no_favorite_data">Pengguna Favorit Tidak Ditemukan…</string>
 
     <string name="double_back_pressed_to_exit">Tekan lagi untuk keluar~</string>
+    <string name="general_header">Umum</string>
+    <string name="reminder_at_9">Pengingat Pada Jam 9.00 Pagi</string>
+    <string name="sl_language">Pilih Bahasa</string>
+    <string name="reminder_at_9_active">Pengingat Pada Jam 9.00 Pagi Diaktifkan</string>
+    <string name="reminder_at_9_canceled">Pengingat Pada Jam 9.00 Pagi Dibatalkan</string>
+    <string name="reminder_at_9_title">Pengingat Untuk Membuka Aplikasi</string>
+    <string name="reminder_at_9_message">Hey, sekarang waktunya membuka aplikasi Github User</string>
 </resources>

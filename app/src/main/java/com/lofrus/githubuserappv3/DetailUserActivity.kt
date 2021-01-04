@@ -5,18 +5,25 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.lofrus.githubuserappv3.databinding.ActivityDetailUserBinding
 import com.lofrus.githubuserappv3.fragment.DetailUserPagerAdapter
 import com.lofrus.githubuserappv3.model.User
+import com.lofrus.githubuserappv3.room.UserFav
+import com.lofrus.githubuserappv3.room.UserFavDatabase
 import com.lofrus.githubuserappv3.viewmodel.DetailUserViewModel
+import kotlin.concurrent.thread
 
 class DetailUserActivity : AppCompatActivity() {
 
     private lateinit var detailUserViewModel: DetailUserViewModel
     private lateinit var binding: ActivityDetailUserBinding
+    private lateinit var localDb: UserFavDatabase
+    private var isFavorite: Boolean = false
+    private lateinit var userDetail: UserFav
 
     companion object {
         const val DETAIL_USER = "detail_user"
@@ -28,6 +35,7 @@ class DetailUserActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        localDb = UserFavDatabase.getAppDatabase(this)!!
 
         detailUserViewModel = ViewModelProvider(
             this,
@@ -35,7 +43,8 @@ class DetailUserActivity : AppCompatActivity() {
         ).get(DetailUserViewModel::class.java)
 
         val user = intent.getParcelableExtra<User>(DETAIL_USER) as User
-        supportActionBar?.title = resources.getString(R.string.app_name_detail) + " @" + user.login
+        supportActionBar?.title =
+            String.format(resources.getString(R.string.app_name_detail) + " @" + user.login)
 
         Glide.with(this)
             .load(user.avatar_url)
@@ -53,6 +62,22 @@ class DetailUserActivity : AppCompatActivity() {
         binding.tabs.setupWithViewPager(binding.viewPager)
 
         getDetailUserData(user.login)
+
+        binding.fabFavorite.setOnClickListener {
+            thread {
+                if (!isFavorite) {
+                    localDb.usersFav().insert(userDetail)
+                } else {
+                    localDb.usersFav().deleteUserWithId(userDetail.id)
+                }
+                val thisUser = localDb.usersFav().getUserWithId(userDetail.id)
+                if (thisUser != null) {
+                    favoriteStatus(true)
+                } else {
+                    favoriteStatus(false)
+                }
+            }
+        }
     }
 
     private fun getDetailUserData(login: String) {
@@ -73,6 +98,20 @@ class DetailUserActivity : AppCompatActivity() {
                     detailUser.following.toString() + "\n" + getString(R.string.following)
                 binding.tabs.getTabAt(2)?.text =
                     detailUser.public_repos.toString() + "\n" + getString(R.string.repositories)
+
+                userDetail = UserFav(
+                    id = detailUser.id,
+                    login = detailUser.login,
+                    avatar_url = detailUser.avatar_url,
+                    html_url = detailUser.html_url
+                )
+
+                thread {
+                    val thisUser = localDb.usersFav().getUserWithId(detailUser.id)
+                    if (thisUser != null) {
+                        favoriteStatus(true)
+                    }
+                }
             }
             showLoading(false)
         })
@@ -82,6 +121,19 @@ class DetailUserActivity : AppCompatActivity() {
                 Toast.makeText(this, status, Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun favoriteStatus(favorite: Boolean) {
+        isFavorite = favorite
+        if (favorite) {
+            binding.fabFavorite.setImageDrawable(
+                ContextCompat.getDrawable(this, R.drawable.ic_baseline_star_24)
+            )
+        } else {
+            binding.fabFavorite.setImageDrawable(
+                ContextCompat.getDrawable(this, R.drawable.ic_baseline_star_border_24)
+            )
+        }
     }
 
     private fun checkNullOrEmptyString(text: String?): String {
@@ -110,4 +162,5 @@ class DetailUserActivity : AppCompatActivity() {
         finish()
         return true
     }
+
 }

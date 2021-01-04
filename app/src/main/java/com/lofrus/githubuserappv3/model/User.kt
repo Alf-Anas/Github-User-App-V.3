@@ -3,6 +3,7 @@ package com.lofrus.githubuserappv3.model
 import android.os.Parcel
 import android.os.Parcelable
 
+
 class User(
     var id: Int = 0,
     var login: String = "",

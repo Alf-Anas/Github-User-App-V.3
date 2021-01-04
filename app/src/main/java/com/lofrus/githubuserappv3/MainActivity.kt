@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -27,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.title = resources.getString(R.string.app_name_main)
 
         adapter = ListUserAdapter()
         adapter.notifyDataSetChanged()
@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
                         showLoading(true)
                         mainViewModel.setListUsers(newText)
                     } else {
+                        binding.llMainBG.visibility = View.VISIBLE
                         adapter.clearData()
                     }
                 }, 850)
@@ -63,6 +64,11 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.getListUsers().observe(this, { listUsers ->
             if (listUsers != null) {
                 adapter.setData(listUsers)
+                if (listUsers.isNotEmpty()) {
+                    binding.llMainBG.visibility = View.GONE
+                } else {
+                    binding.llMainBG.visibility = View.VISIBLE
+                }
             }
             showLoading(false)
         })
@@ -81,7 +87,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.change_ln -> startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+            R.id.favorite_ls -> startActivity(Intent(this, FavoriteActivity::class.java))
+            R.id.setting_sh -> startActivity(Intent(this, SettingsActivity::class.java))
         }
         return super.onOptionsItemSelected(item)
     }
