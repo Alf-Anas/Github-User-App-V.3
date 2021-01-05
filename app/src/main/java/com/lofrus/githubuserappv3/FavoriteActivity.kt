@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lofrus.githubuserappv3.model.ListUserAdapter
 import com.lofrus.githubuserappv3.model.User
-import com.lofrus.githubuserappv3.room.UserFavDatabase
+import com.lofrus.githubuserappv3.room.DBContract.UserFavColumns.Companion.CONTENT_URI
+import com.lofrus.githubuserappv3.room.UserFavMappingHelper
 import kotlin.concurrent.thread
 
 class FavoriteActivity : AppCompatActivity() {
 
-    private lateinit var localDb: UserFavDatabase
     private lateinit var adapter: ListUserAdapter
     private lateinit var llFavoriteBG: LinearLayout
 
@@ -25,7 +25,6 @@ class FavoriteActivity : AppCompatActivity() {
         llFavoriteBG = findViewById(R.id.llFavoriteBG)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = resources.getString(R.string.app_name_favorite)
-        localDb = UserFavDatabase.getAppDatabase(this)!!
 
         adapter = ListUserAdapter()
         adapter.notifyDataSetChanged()
@@ -44,7 +43,8 @@ class FavoriteActivity : AppCompatActivity() {
 
     private fun setData() {
         thread {
-            val listFavUsers = localDb.usersFav().getAllUsers()
+            val cursor = contentResolver.query(CONTENT_URI, null, null, null, null)
+            val listFavUsers = UserFavMappingHelper.mapCursorToArrayList(cursor)
             runOnUiThread {
                 if (listFavUsers.isNotEmpty()) {
                     val list = arrayListOf<User>()

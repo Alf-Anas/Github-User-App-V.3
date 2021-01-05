@@ -1,5 +1,7 @@
 package com.lofrus.githubuserappv3
 
+import android.content.ContentValues
+import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -12,8 +14,12 @@ import com.bumptech.glide.request.RequestOptions
 import com.lofrus.githubuserappv3.databinding.ActivityDetailUserBinding
 import com.lofrus.githubuserappv3.fragment.DetailUserPagerAdapter
 import com.lofrus.githubuserappv3.model.User
+import com.lofrus.githubuserappv3.room.DBContract.UserFavColumns.Companion.CONTENT_URI
 import com.lofrus.githubuserappv3.room.UserFav
-import com.lofrus.githubuserappv3.room.UserFavDatabase
+import com.lofrus.githubuserappv3.room.UserFav.Companion.COLUMN_AVATAR_URL
+import com.lofrus.githubuserappv3.room.UserFav.Companion.COLUMN_HTML_URL
+import com.lofrus.githubuserappv3.room.UserFav.Companion.COLUMN_ID
+import com.lofrus.githubuserappv3.room.UserFav.Companion.COLUMN_LOGIN
 import com.lofrus.githubuserappv3.viewmodel.DetailUserViewModel
 import kotlin.concurrent.thread
 
@@ -21,9 +27,9 @@ class DetailUserActivity : AppCompatActivity() {
 
     private lateinit var detailUserViewModel: DetailUserViewModel
     private lateinit var binding: ActivityDetailUserBinding
-    private lateinit var localDb: UserFavDatabase
     private var isFavorite: Boolean = false
     private lateinit var userDetail: UserFav
+    private lateinit var uriWithId: Uri
 
     companion object {
         const val DETAIL_USER = "detail_user"
@@ -35,7 +41,6 @@ class DetailUserActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        localDb = UserFavDatabase.getAppDatabase(this)!!
 
         detailUserViewModel = ViewModelProvider(
             this,
@@ -66,15 +71,23 @@ class DetailUserActivity : AppCompatActivity() {
         binding.fabFavorite.setOnClickListener {
             thread {
                 if (!isFavorite) {
-                    localDb.usersFav().insert(userDetail)
+                    val values = ContentValues()
+                    values.put(COLUMN_ID, userDetail.id)
+                    values.put(COLUMN_LOGIN, userDetail.login)
+                    values.put(COLUMN_AVATAR_URL, userDetail.avatar_url)
+                    values.put(COLUMN_HTML_URL, userDetail.html_url)
+                    contentResolver.insert(uriWithId, values)
                 } else {
-                    localDb.usersFav().deleteUserWithId(userDetail.id)
+                    contentResolver.delete(uriWithId, null, null)
                 }
-                val thisUser = localDb.usersFav().getUserWithId(userDetail.id)
-                if (thisUser != null) {
-                    favoriteStatus(true)
-                } else {
-                    favoriteStatus(false)
+                val cursor = contentResolver.query(uriWithId, null, null, null, null)
+                if (cursor != null) {
+                    if (cursor.count > 0) {
+                        favoriteStatus(true)
+                    } else {
+                        favoriteStatus(false)
+                    }
+                    cursor.close()
                 }
             }
         }
@@ -107,9 +120,13 @@ class DetailUserActivity : AppCompatActivity() {
                 )
 
                 thread {
-                    val thisUser = localDb.usersFav().getUserWithId(detailUser.id)
-                    if (thisUser != null) {
-                        favoriteStatus(true)
+                    uriWithId = Uri.parse(CONTENT_URI.toString() + "/" + detailUser.id)
+                    val cursor = contentResolver.query(uriWithId, null, null, null, null)
+                    if (cursor != null) {
+                        if (cursor.count > 0) {
+                            favoriteStatus(true)
+                        }
+                        cursor.close()
                     }
                 }
             }

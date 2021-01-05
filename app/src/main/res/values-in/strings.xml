@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Github User App v.3</string>
     <string name="app_name_main">Pencarian Pengguna Github</string>
     <string name="app_name_detail">Detail Pengguna</string>
     <string name="app_name_favorite">Pengguna Favorit</string>
     <string name="app_name_settings">Pengaturan</string>
 
+    <string name="user_app">User App v.3</string>
     <string name="follower">Pengikut</string>
     <string name="following">Mengikuti</string>
     <string name="repositories">Repositori</string>
+    <string name="repo">Repo</string>
     <string name="email">Surel</string>
     <string name="location">Lokasi</string>
     <string name="company">Perusahaan</string>
     <string name="favorite">Favorit</string>
 
+    <string name="key_reminder9">reminder_9</string>
+    <string name="key_language">language</string>
+    <string name="ln_english">en</string>
+    <string name="ln_indonesia">in</string>
+
     <string name="list_username">Nama Pengguna</string>
     <string name="list_name">Nama</string>
+    <string name="list_link">https://</string>
     <string name="search_title">Cari pengguna…</string>
     <string name="options_ln">Pilihan Bahasa</string>
     <string name="type_to_search">Ketikkan Nama Pengguna Untuk Mencari…</string>

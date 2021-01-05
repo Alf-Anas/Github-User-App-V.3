@@ -1,6 +1,5 @@
 package com.lofrus.githubuserappv3.model
 
-import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,7 @@ import com.lofrus.githubuserappv3.DetailUserActivity
 import com.lofrus.githubuserappv3.R
 import com.lofrus.githubuserappv3.databinding.ItemListUserBinding
 
-class ListUserAdapter: RecyclerView.Adapter<ListUserAdapter.ListViewHolder>() {
+class ListUserAdapter : RecyclerView.Adapter<ListUserAdapter.ListViewHolder>() {
 
     private val mData = ArrayList<User>()
     fun setData(items: ArrayList<User>) {

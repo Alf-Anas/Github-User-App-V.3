@@ -1,6 +1,5 @@
 package com.lofrus.githubuserappv3.broadcast
 
-import android.R.id
 import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -40,7 +39,8 @@ class AlarmReceiver : BroadcastReceiver() {
         val channelID = "Channel_1"
         val channelName = "AlarmManager channel"
 
-        val notificationManagerCompat = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManagerCompat =
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val builder = NotificationCompat.Builder(context, channelID)
             .setSmallIcon(R.drawable.ic_baseline_notifications_active_24)
@@ -63,7 +63,8 @@ class AlarmReceiver : BroadcastReceiver() {
         }
 
         val notificationIntent = Intent(context, SplashScreenActivity::class.java)
-        notificationIntent.flags = (Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+        notificationIntent.flags =
+            (Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
 
         val intent = PendingIntent.getActivity(
             context, 0,

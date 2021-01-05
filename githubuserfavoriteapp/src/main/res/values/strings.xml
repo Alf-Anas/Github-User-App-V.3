@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Github User Favorite App</string>
+    <string name="app_name_detail">Detail User</string>
+
+    <string name="follower">Followers</string>
+    <string name="following">Following</string>
+    <string name="repositories">Repositories</string>
+    <string name="repo">Repo</string>
+    <string name="email">Email</string>
+    <string name="location">Location</string>
+    <string name="company">Company</string>
+    <string name="favorite">Favorite</string>
+
+    <string name="list_username">Username</string>
+    <string name="list_name">Name</string>
+    <string name="list_link">https://</string>
+    <string name="no_favorite_data">Favorite User Not Found…</string>
+
+    <string name="double_back_pressed_to_exit">Press again to exit~</string>
+</resources>
